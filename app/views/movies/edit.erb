@@ -1,0 +1,7 @@
+<h1>Edit <%=@movie.title %></h1>
+<form method="POST" action="/movies/<%=@movie.id%>">
+<input type="hidden" name="_method" value="PATCH">
+<%# name will be the method that rack method override looks for value will be what we are changing the route too and the type will be hidden so the user doesnt see it. %>
+<p>Title: <input type="text" name="movie[title]" value="<%=@movie.title%>" /></p>
+<input type="submit" value="Update Movie" id="submit"/>
+</form>

@@ -1,0 +1,14 @@
+<h1>MOVIE LIST:</h1>
+<% if logged_in? %>
+<h2>If Logged in show me username: <%= current_user.email %> </h2>
+<% end %>
+<ul>
+<% @movies.each do |m| %>
+<%# <a href="">TEXT</a> => how to write a link %>
+<li><a href="/movies/<%=m.id%>"><%= m.title %> </a></li>
+<% end %>
+</ul>
+
+<form method="POST" action="/logout">
+<input type="submit" value="Log Out">
+</form>
