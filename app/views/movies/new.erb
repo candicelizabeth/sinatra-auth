@@ -8,5 +8,11 @@
   <option value="<%= director.id %>"><%= director.name %></option> #value we want to be the director id because that is the connection between the two fields
  <% end %> 
 </select>
+<p>Genre:</p>
+<select name="genre_id">
+<% @genres.each do |genre|%>
+<option value="<%=genre.id%>"><%= genre.name %></option>
+<% end %>
+</select>
 <input type="submit" value="Create Movie" id="submit"/>
 </form> 

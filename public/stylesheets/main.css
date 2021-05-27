@@ -1,0 +1,14 @@
+body {
+  background-color: blueviolet;
+}
+
+.nav>li {
+  display: inline-block;
+}
+
+ul form{
+  display: inline-block;
+}
+
+
+

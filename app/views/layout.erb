@@ -2,10 +2,25 @@
 <html>
 <head>
 <title>Awesome Movies</title>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="/stylesheets/main.css">
 </head>
 <body>
-<h1>This is Where the movies are at!!!</h1>
+
+<ul class="nav">
+<li class="nav-item inline"><a href="/movies" class="nav-link">Movies</a></li>
+<li class="nav-item inline"><a href="/login" class="nav-link">Login</a></li>
+<li class="nav-item inline"><a href="/signup" class="nav-link">Signup</a></li>
+<% if logged_in? %>
+<li class="nav-item d-inline"><a href="/movies/new" class="nav-link">Create Movie</a></li>
+<form method="POST" action="/logout">
+<input type="submit" value="Log Out">
+</form>
+<% end %>
+</ul>
+
 <%= yield %>
-<footer>Movies 2021</footer>
+<footer class="text-danger" >Movies 2021</footer>
 </body>
 </html>

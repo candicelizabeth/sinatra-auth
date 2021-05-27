@@ -27,6 +27,29 @@ class UserController < ApplicationController
         #4. if they DON'T sign up successfully we want to redirect back to the form
     end
 
+    get '/login' do 
+        #this form for logging in
+        erb :'/users/login'
+    end
+
+    post '/login' do 
+        # binding.pry
+        #log in check 
+        #existing account in our DB 
+        binding.pry
+        user = User.find_by_email(params[:email])
+        if user && user.authenticate(params[:password])
+            session[:user_id] = user.id
+           redirect to '/movies' 
+
+        end
+        redirect to '/login'
+        #password matches password of account
+         #if true redirect #movies 
+         #add the user_id to the session 
+         #if false error / redirect back to our login
+    end
+
     post '/logout' do 
         session.clear
         redirect to '/movies'

@@ -1,13 +1,13 @@
 <h1><%= @movie.title %></h1>
 <p>Description: <%=@movie.description %></p>
 <h5>Director: <%=@movie.director.try(:name) %></h5>
+<% if @movie.user == current_user %>
 <a href="/movies/<%=@movie.id%>/edit">Edit</a>
- 
 <form method="POST" action="/movies/<%=@movie.id%>">
 <input type="hidden" name="_method" value="DELETE"  />
 <input type="submit" value="Delete Movie" />
 </form>
-
+<% end %>
 
 
 
